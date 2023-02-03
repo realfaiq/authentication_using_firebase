@@ -46,7 +46,6 @@ class AuthControllers {
           fullName: fullName,
           email: email,
           age: age,
-          password: password,
         );
         await _firestore
             .collection('Admins')
@@ -84,6 +83,18 @@ class AuthControllers {
       } else if (e.code == 'wrong-password') {
         res = 'Incorrect Credentials';
       }
+    } catch (err) {
+      print(err.toString());
+    }
+    return res;
+  }
+
+  //Reset Password Controller
+  Future<String> resetPassword({required String email}) async {
+    String res = 'Something went wrong';
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      res = 'Success';
     } catch (err) {
       print(err.toString());
     }

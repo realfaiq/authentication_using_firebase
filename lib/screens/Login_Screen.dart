@@ -2,6 +2,7 @@ import 'package:authentication_using_firebase/controllers/auth_Controller.dart';
 import 'package:authentication_using_firebase/screens/Admin_HomeScreen.dart';
 import 'package:authentication_using_firebase/screens/Common_Screen.dart';
 import 'package:authentication_using_firebase/screens/Doctor_HomeScreen.dart';
+import 'package:authentication_using_firebase/screens/Forget_Password_Screen.dart';
 import 'package:authentication_using_firebase/screens/Patient_HomeScreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -88,6 +89,22 @@ class _LogInScreenState extends State<LogInScreen> {
                 'Log In',
                 style: TextStyle(color: Colors.white, fontSize: 15),
               )),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ForgetPasswordScreen()));
+            },
+            child: Text(
+              'Forget Password?',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 15,
+              ),
             ),
           ),
           SizedBox(
